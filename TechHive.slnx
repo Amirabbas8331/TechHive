@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="TechHive.Application/TechHive.Application.csproj" />
+  <Project Path="TechHive.Domain/TechHive.Domain.csproj" />
+  <Project Path="TechHive.Infrastructure/TechHive.Infrastructure.csproj" />
+  <Project Path="TechHive.Presentation/TechHive.Presentation.csproj" />
+</Solution>
