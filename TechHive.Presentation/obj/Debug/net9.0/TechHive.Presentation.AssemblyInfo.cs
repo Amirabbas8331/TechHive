@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TechHive.Presentation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d32694a8ba3fd3ebd293475fec009a4b948e4fae")]
 [assembly: System.Reflection.AssemblyProductAttribute("TechHive.Presentation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TechHive.Presentation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

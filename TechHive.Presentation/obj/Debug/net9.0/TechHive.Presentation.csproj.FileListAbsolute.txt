@@ -1,0 +1,8 @@
+C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\obj\Debug\net9.0\TechHive.Presentation.csproj.AssemblyReference.cache
+C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\obj\Debug\net9.0\TechHive.Presentation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\obj\Debug\net9.0\TechHive.Presentation.AssemblyInfoInputs.cache
+C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\obj\Debug\net9.0\TechHive.Presentation.AssemblyInfo.cs
+C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\obj\Debug\net9.0\TechHive.Presentation.csproj.CoreCompileInputs.cache
+C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\obj\Debug\net9.0\TechHive.Presentation.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\obj\Debug\net9.0\TechHive.Presentation.sourcelink.json

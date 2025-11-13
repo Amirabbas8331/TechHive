@@ -1,0 +1,13 @@
+C:\Users\msigaming\source\repos\TechHive\TechHive.Domain\bin\Debug\net9.0\TechHive.Domain.deps.json
+C:\Users\msigaming\source\repos\TechHive\TechHive.Domain\bin\Debug\net9.0\TechHive.Domain.dll
+C:\Users\msigaming\source\repos\TechHive\TechHive.Domain\bin\Debug\net9.0\TechHive.Domain.pdb
+C:\Users\msigaming\source\repos\TechHive\TechHive.Domain\obj\Debug\net9.0\TechHive.Domain.csproj.AssemblyReference.cache
+C:\Users\msigaming\source\repos\TechHive\TechHive.Domain\obj\Debug\net9.0\TechHive.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\msigaming\source\repos\TechHive\TechHive.Domain\obj\Debug\net9.0\TechHive.Domain.AssemblyInfoInputs.cache
+C:\Users\msigaming\source\repos\TechHive\TechHive.Domain\obj\Debug\net9.0\TechHive.Domain.AssemblyInfo.cs
+C:\Users\msigaming\source\repos\TechHive\TechHive.Domain\obj\Debug\net9.0\TechHive.Domain.csproj.CoreCompileInputs.cache
+C:\Users\msigaming\source\repos\TechHive\TechHive.Domain\obj\Debug\net9.0\TechHive.Domain.sourcelink.json
+C:\Users\msigaming\source\repos\TechHive\TechHive.Domain\obj\Debug\net9.0\TechHive.Domain.dll
+C:\Users\msigaming\source\repos\TechHive\TechHive.Domain\obj\Debug\net9.0\refint\TechHive.Domain.dll
+C:\Users\msigaming\source\repos\TechHive\TechHive.Domain\obj\Debug\net9.0\TechHive.Domain.pdb
+C:\Users\msigaming\source\repos\TechHive\TechHive.Domain\obj\Debug\net9.0\ref\TechHive.Domain.dll
