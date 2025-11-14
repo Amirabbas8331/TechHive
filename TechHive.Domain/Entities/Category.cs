@@ -1,18 +1,18 @@
-﻿using ErrorOr;
+﻿using TechHive.Domain.Base;
+using TechHive.Domain.Results;
+
 namespace TechHive.Model;
 
-public class Category
+public class Category:Entity<int>
 {
-    public Category(string name,List<Product> products)
+    public Category(int id,string name):base(id)
     {
         Name = name;
-        Products = products;
     }
-    public int Id { get;private set; }
     public string Name { get; private set; }
     public List<Product> Products { get; private set; } = new();
-    public ErrorOr<Category> Create(string name,List<Product> products)
+    public Result<Category> Create(string name)
     {
-        return new Category(name,products);
+        return Result.Success(new Category(Id,name));
     }
 }

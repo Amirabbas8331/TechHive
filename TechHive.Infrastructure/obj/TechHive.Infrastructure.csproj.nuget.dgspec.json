@@ -31,7 +31,11 @@
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Domain\\TechHive.Domain.csproj": {
+                "projectPath": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Domain\\TechHive.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -115,10 +119,6 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
-            "ErrorOr": {
-              "target": "Package",
-              "version": "[2.0.1, )"
-            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.11, )"

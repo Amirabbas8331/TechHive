@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\msigaming\\source\\repos\\TechHive\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4C589935-2FAB-80E5-9BB6-F1861B397B28}|TechHive.Domain\\TechHive.Domain.csproj|c:\\users\\msigaming\\source\\repos\\techhive\\techhive.domain\\valueobjects\\productname.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4C589935-2FAB-80E5-9BB6-F1861B397B28}|TechHive.Domain\\TechHive.Domain.csproj|solutionrelative:techhive.domain\\valueobjects\\productname.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CB23C43B-E266-AD52-3AF1-47E10145FD7A}|TechHive.Infrastructure\\TechHive.Infrastructure.csproj|c:\\users\\msigaming\\source\\repos\\techhive\\techhive.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB23C43B-E266-AD52-3AF1-47E10145FD7A}|TechHive.Infrastructure\\TechHive.Infrastructure.csproj|solutionrelative:techhive.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4C589935-2FAB-80E5-9BB6-F1861B397B28}|TechHive.Domain\\TechHive.Domain.csproj|c:\\users\\msigaming\\source\\repos\\techhive\\techhive.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4C589935-2FAB-80E5-9BB6-F1861B397B28}|TechHive.Domain\\TechHive.Domain.csproj|solutionrelative:techhive.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2B5A6175-110F-AC28-6DE0-E7C0994E64EB}|TechHive.Application\\TechHive.Application.csproj|c:\\users\\msigaming\\source\\repos\\techhive\\techhive.application\\common\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B5A6175-110F-AC28-6DE0-E7C0994E64EB}|TechHive.Application\\TechHive.Application.csproj|solutionrelative:techhive.application\\common\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,27 +47,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ProductName.cs",
-              "DocumentMoniker": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Domain\\ValueObjects\\ProductName.cs",
-              "RelativeDocumentMoniker": "TechHive.Domain\\ValueObjects\\ProductName.cs",
-              "ToolTip": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Domain\\ValueObjects\\ProductName.cs",
-              "RelativeToolTip": "TechHive.Domain\\ValueObjects\\ProductName.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAtAAAAAAAAAA==",
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Infrastructure\\Repositories\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "TechHive.Infrastructure\\Repositories\\ProductRepository.cs",
+              "ToolTip": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Infrastructure\\Repositories\\ProductRepository.cs",
+              "RelativeToolTip": "TechHive.Infrastructure\\Repositories\\ProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T10:19:20.295Z",
+              "WhenOpened": "2025-11-14T11:32:49.575Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Domain\\Entities\\Product.cs",
-              "RelativeDocumentMoniker": "TechHive.Domain\\Entities\\Product.cs",
-              "ToolTip": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Domain\\Entities\\Product.cs",
-              "RelativeToolTip": "TechHive.Domain\\Entities\\Product.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAQwHsAAAAFAAAAAAAAAA==",
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Application\\Common\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "TechHive.Application\\Common\\IProductRepository.cs",
+              "ToolTip": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Application\\Common\\IProductRepository.cs",
+              "RelativeToolTip": "TechHive.Application\\Common\\IProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T09:41:08.984Z",
+              "WhenOpened": "2025-11-14T11:28:42.361Z",
               "EditorCaption": ""
             }
           ]

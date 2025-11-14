@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TechHive.Domain\TechHive.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

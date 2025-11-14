@@ -1,6 +1,6 @@
 
 using System.Text.RegularExpressions;
-using TechHive.Domain.Base;
+using TechHive.Domain.Abstraction;
 using TechHive.Domain.Errors.ProductErrors;
 using TechHive.Domain.Guards;
 using TechHive.Domain.Guardss;

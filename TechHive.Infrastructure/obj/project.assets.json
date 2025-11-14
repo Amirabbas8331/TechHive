@@ -2,19 +2,6 @@
   "version": 3,
   "targets": {
     "net9.0": {
-      "ErrorOr/2.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/ErrorOr.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/ErrorOr.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.AspNetCore.Cryptography.Internal/9.0.11": {
         "type": "package",
         "compile": {
@@ -329,6 +316,9 @@
       "TechHive.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "TechHive.Domain": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/TechHive.Application.dll": {}
         },
@@ -340,7 +330,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
-          "ErrorOr": "2.0.1",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.11",
           "Microsoft.Extensions.Identity.Core": "9.0.11"
         },
@@ -354,23 +343,6 @@
     }
   },
   "libraries": {
-    "ErrorOr/2.0.1": {
-      "sha512": "aje9lUVEAsusPFmaRcVM5EUqWBofd7hYtb9N8+ycgPYrtOzyFajMpzRgIO4uuiCllNLBc3x48+cpA+4v4koUDQ==",
-      "type": "package",
-      "path": "erroror/2.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "erroror.2.0.1.nupkg.sha512",
-        "erroror.nuspec",
-        "icon-square.png",
-        "lib/net6.0/ErrorOr.dll",
-        "lib/net6.0/ErrorOr.xml",
-        "lib/netstandard2.0/ErrorOr.dll",
-        "lib/netstandard2.0/ErrorOr.xml"
-      ]
-    },
     "Microsoft.AspNetCore.Cryptography.Internal/9.0.11": {
       "sha512": "+599lmkdIaDHkpW4KI+r8u4Nz8eXVo0aZ+fEt4mQ/ibe0xCoSm3QNYCgdvKdTxp+jcH5X330vzu0xuYXjhZkWg==",
       "type": "package",

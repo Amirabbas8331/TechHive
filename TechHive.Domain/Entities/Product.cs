@@ -1,6 +1,8 @@
-﻿using ErrorOr;
+﻿
+using TechHive.Domain.Abstraction;
 using TechHive.Domain.Base;
 using TechHive.Domain.Enums;
+using TechHive.Domain.Errors.ProductErrors;
 using TechHive.Domain.Results;
 using TechHive.Domain.ValueObjects;
 
@@ -60,7 +62,6 @@ public class Product:Entity<ProductId>
             return Result.Failure<Product>(priceResult.Error);
         }
 
-        //? Refactor (ROP)
         var productId = ProductId.New(generator);
 
         return Result.Success(
@@ -74,11 +75,6 @@ public class Product:Entity<ProductId>
             )
         );
     }
-
-    // public Result ChangeStatus(ProductStatus status)
-    // {
-    //     return Result.Success();
-    // }
 
     public Result Activate()
     {

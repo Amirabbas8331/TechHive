@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "ppfaiyDj5XY=",
+  "dgSpecHash": "i34zUSOIzsE=",
   "success": true,
   "projectFilePath": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Domain\\TechHive.Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\msigaming\\.nuget\\packages\\erroror\\2.0.1\\erroror.2.0.1.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\9.0.11\\microsoft.aspnetcore.cryptography.internal.9.0.11.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\9.0.11\\microsoft.aspnetcore.cryptography.keyderivation.9.0.11.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\9.0.11\\microsoft.aspnetcore.identity.entityframeworkcore.9.0.11.nupkg.sha512",

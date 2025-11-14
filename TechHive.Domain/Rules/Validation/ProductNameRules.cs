@@ -1,7 +1,4 @@
-
-
-using TechHive.Domain.Base;
-using TechHive.Domain.Errors.ProductErrors;
+using TechHive.Domain.Abstraction;
 using TechHive.Domain.Guards;
 using TechHive.Domain.Guardss;
 using TechHive.Domain.Results;
@@ -16,7 +13,7 @@ public class ProductNameRules : IValueObjectRules<string>
 
     protected ProductNameRules() { }
 
-    static Result<string> IValueObjectRules<string>.Validate(string value) =>
+   public static Result<string> Validate(string value) =>
          ValidationChain
             .For(value)
             .Ensure(Guard.Against.NotEmpty, Name.Empty)

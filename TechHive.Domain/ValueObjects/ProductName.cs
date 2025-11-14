@@ -1,6 +1,7 @@
 
 
 using TechHive.Domain.Results;
+using TechHive.Domain.Rules.Validation;
 
 namespace TechHive.Domain.ValueObjects;
 
