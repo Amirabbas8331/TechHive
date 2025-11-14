@@ -10,3 +10,7 @@ C:\Users\msigaming\source\repos\TechHive\TechHive.Application\obj\Debug\net9.0\T
 C:\Users\msigaming\source\repos\TechHive\TechHive.Application\obj\Debug\net9.0\refint\TechHive.Application.dll
 C:\Users\msigaming\source\repos\TechHive\TechHive.Application\obj\Debug\net9.0\TechHive.Application.pdb
 C:\Users\msigaming\source\repos\TechHive\TechHive.Application\obj\Debug\net9.0\ref\TechHive.Application.dll
+C:\Users\msigaming\source\repos\TechHive\TechHive.Application\bin\Debug\net9.0\TechHive.Domain.dll
+C:\Users\msigaming\source\repos\TechHive\TechHive.Application\bin\Debug\net9.0\TechHive.Domain.pdb
+C:\Users\msigaming\source\repos\TechHive\TechHive.Application\obj\Debug\net9.0\TechHive.Application.csproj.AssemblyReference.cache
+C:\Users\msigaming\source\repos\TechHive\TechHive.Application\obj\Debug\net9.0\TechHive.9C6B1FA6.Up2Date
