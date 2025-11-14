@@ -1,29 +1,46 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using TechHive.Application.Common;
+using TechHive.Context;
 using TechHive.Domain.Results;
+using TechHive.Domain.ValueObjects;
 using TechHive.Model;
 
 namespace TechHive.Infrastructure.Repositories;
 
-public class ProductRepository : IProductRepository
+public class ProductRepository : IGenericRepository<Product>
 {
-    public Task<Result<int>> AddAsync(Product product)
+    private readonly ShopDbConext _context;   
+    public ProductRepository(ShopDbConext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+    }
+    public async Task<Result> DeleteAsync(ProductId productId)
+    {
+        var product= await _context.products.FirstOrDefaultAsync(x=>x.Id== productId);
+        if (product is null) return Result.Failure(Domain.Error.NotFound("404", "Entity not found."));
+        _context.products.Remove(product);
+        return Result.Success(productId);
     }
 
-    public Task<Result> DeleteAsync(int id)
+  
+    public async Task<Result<Product>> GetByIdAsync(ProductId productId)
     {
-        throw new NotImplementedException();
+        var product = await _context.products.FirstOrDefaultAsync(x => x.Id == productId);
+        if (product is null) return Result<Product>.Failure(Domain.Error.NotFound("404", "Entity not found."));
+        return Result.Success(product);
     }
 
-    public Task<Result<Product>> GetByIdAsync(int id)
+    public async Task<Result> UpdateAsync(Product entity)
     {
-        throw new NotImplementedException();
+        _context.products.Update(entity);
+        return Result.Success(entity.Status);
+
     }
 
-    public Task<Result<Product>> UpdateAsync(Product product)
+     public async Task<Result<ProductId>>AddAsync(Product entity)
     {
-        throw new NotImplementedException();
+        await _context.products.AddAsync(entity);
+        return Result.Success(entity.Id);
     }
 }

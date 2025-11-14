@@ -158,3 +158,5 @@ C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\obj\Debug\net9.0\
 C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\obj\Debug\net9.0\TechHive.49FA37A7.Up2Date
 C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\obj\Debug\net9.0\TechHive.Presentation.genruntimeconfig.cache
 C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\obj\Debug\net9.0\ref\TechHive.Presentation.dll
+C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\bin\Debug\net9.0\MediatR.dll
+C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\bin\Debug\net9.0\MediatR.Contracts.dll
