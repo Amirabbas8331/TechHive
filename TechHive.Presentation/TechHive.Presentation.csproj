@@ -39,8 +39,4 @@
     <ProjectReference Include="..\TechHive.Infrastructure\TechHive.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

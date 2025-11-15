@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\msigaming\\source\\repos\\TechHive\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CB23C43B-E266-AD52-3AF1-47E10145FD7A}|TechHive.Infrastructure\\TechHive.Infrastructure.csproj|c:\\users\\msigaming\\source\\repos\\techhive\\techhive.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB23C43B-E266-AD52-3AF1-47E10145FD7A}|TechHive.Infrastructure\\TechHive.Infrastructure.csproj|solutionrelative:techhive.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2B5A6175-110F-AC28-6DE0-E7C0994E64EB}|TechHive.Application\\TechHive.Application.csproj|c:\\users\\msigaming\\source\\repos\\techhive\\techhive.application\\products\\command\\deleteproducts\\deleteproductcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2B5A6175-110F-AC28-6DE0-E7C0994E64EB}|TechHive.Application\\TechHive.Application.csproj|solutionrelative:techhive.application\\products\\command\\deleteproducts\\deleteproductcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6295F666-A1AC-8083-624A-B60857CA2B2A}|TechHive.Presentation\\TechHive.Presentation.csproj|c:\\users\\msigaming\\source\\repos\\techhive\\techhive.presentation\\controllers\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6295F666-A1AC-8083-624A-B60857CA2B2A}|TechHive.Presentation\\TechHive.Presentation.csproj|solutionrelative:techhive.presentation\\controllers\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,27 +43,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ProductRepository.cs",
-              "DocumentMoniker": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Infrastructure\\Repositories\\ProductRepository.cs",
-              "RelativeDocumentMoniker": "TechHive.Infrastructure\\Repositories\\ProductRepository.cs",
-              "ToolTip": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Infrastructure\\Repositories\\ProductRepository.cs",
-              "RelativeToolTip": "TechHive.Infrastructure\\Repositories\\ProductRepository.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAoAAAAhAAAAAAAAAA==",
+              "Title": "ApiController.cs",
+              "DocumentMoniker": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Presentation\\Controllers\\ApiController.cs",
+              "RelativeDocumentMoniker": "TechHive.Presentation\\Controllers\\ApiController.cs",
+              "ToolTip": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Presentation\\Controllers\\ApiController.cs*",
+              "RelativeToolTip": "TechHive.Presentation\\Controllers\\ApiController.cs*",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAwCMAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T17:19:11.506Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DeleteProductCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Application\\Products\\Command\\DeleteProducts\\DeleteProductCommandHandler.cs",
-              "RelativeDocumentMoniker": "TechHive.Application\\Products\\Command\\DeleteProducts\\DeleteProductCommandHandler.cs",
-              "ToolTip": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Application\\Products\\Command\\DeleteProducts\\DeleteProductCommandHandler.cs",
-              "RelativeToolTip": "TechHive.Application\\Products\\Command\\DeleteProducts\\DeleteProductCommandHandler.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T17:16:19.505Z",
+              "WhenOpened": "2025-11-15T07:57:23.212Z",
               "EditorCaption": ""
             }
           ]
