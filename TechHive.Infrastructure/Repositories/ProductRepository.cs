@@ -10,20 +10,20 @@ namespace TechHive.Infrastructure.Repositories;
 
 public class ProductRepository : IGenericRepository<Product>
 {
-    private readonly ShopDbConext _context;   
+    private readonly ShopDbConext _context;
     public ProductRepository(ShopDbConext context)
     {
         _context = context;
     }
     public async Task<Result> DeleteAsync(ProductId productId)
     {
-        var product= await _context.products.FirstOrDefaultAsync(x=>x.Id== productId);
+        var product = await _context.products.FirstOrDefaultAsync(x => x.Id == productId);
         if (product is null) return Result.Failure(Domain.Error.NotFound("404", "Entity not found."));
         _context.products.Remove(product);
         return Result.Success(productId);
     }
 
-  
+
     public async Task<Result<Product>> GetByIdAsync(ProductId productId)
     {
         var product = await _context.products.FirstOrDefaultAsync(x => x.Id == productId);
@@ -38,7 +38,7 @@ public class ProductRepository : IGenericRepository<Product>
 
     }
 
-     public async Task<Result<ProductId>>AddAsync(Product entity)
+    public async Task<Result<ProductId>> AddAsync(Product entity)
     {
         await _context.products.AddAsync(entity);
         return Result.Success(entity.Id);

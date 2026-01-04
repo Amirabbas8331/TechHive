@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "irtnXhyw0RI=",
+  "dgSpecHash": "IIsHvDZpW9E=",
   "success": true,
   "projectFilePath": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Presentation\\TechHive.Presentation.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,8 @@
     "C:\\Users\\msigaming\\.nuget\\packages\\aspnetcore.healthchecks.ui.core\\9.0.0\\aspnetcore.healthchecks.ui.core.9.0.0.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",
+    "C:\\Users\\msigaming\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
+    "C:\\Users\\msigaming\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.1.1\\fluentvalidation.dependencyinjectionextensions.12.1.1.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\google.protobuf\\3.30.1\\google.protobuf.3.30.1.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\grpc.core.api\\2.70.0\\grpc.core.api.2.70.0.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\grpc.net.client\\2.70.0\\grpc.net.client.2.70.0.nupkg.sha512",

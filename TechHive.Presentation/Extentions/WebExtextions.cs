@@ -1,4 +1,5 @@
-﻿using HealthChecks.UI.Client;
+﻿using FluentValidation;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Mvc;
@@ -62,7 +63,7 @@ public static class WebExtextions
             .AddCheck<SqlHealthCheck>("custom-sql", HealthStatus.Unhealthy)
             .AddRedis("Redis Connectionstring")
             .AddNpgSql("Database Connectionstring");
-
+        builder.Services.AddValidatorsFromAssembly(typeof(WebExtextions).Assembly);
         var tokenBucket = new TokenBucketRateLimiter(new TokenBucketRateLimiterOptions
         {
             TokenLimit = 10,
