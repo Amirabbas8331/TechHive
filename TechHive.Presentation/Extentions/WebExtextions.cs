@@ -27,8 +27,20 @@ namespace TechHive.Presentation.Extentions;
 
 public static class WebExtextions
 {
-   public static WebApplicationBuilder AddApplicationBuilder(this WebApplicationBuilder builder)
+    public static WebApplicationBuilder AddApplicationBuilder(this WebApplicationBuilder builder)
     {
+        builder.Services.AddExceptionHandler(options =>
+        {
+            options.StatusCodeSelector = exception => exception switch
+            {
+                ArgumentNullException => StatusCodes.Status400BadRequest,
+                ArgumentException => StatusCodes.Status400BadRequest,
+                UnauthorizedAccessException => StatusCodes.Status401Unauthorized,
+                KeyNotFoundException => StatusCodes.Status404NotFound,
+
+                _ => StatusCodes.Status500InternalServerError
+            };
+        });
         builder.Services.AddProblemDetails(option =>
         {
             option.CustomizeProblemDetails = context =>
@@ -223,6 +235,7 @@ public static class WebExtextions
         app.MapRazorPages()
            .WithStaticAssets();
         app.MapReverseProxy();
+        app.UseExceptionHandler();
         app.MapGet("", () => "").RequireRateLimiting("retry");
         app.Run();
         return app;
