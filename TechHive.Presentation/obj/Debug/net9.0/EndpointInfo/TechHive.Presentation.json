@@ -5,10 +5,26 @@
     "version": "1.0"
   },
   "paths": {
-    "/upload": {
+    "/api/Files/upload": {
       "post": {
         "tags": [
           "Files"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "requestBody": {
           "content": {
@@ -37,7 +53,7 @@
         }
       }
     },
-    "/download/{fileName}": {
+    "/api/Files/download": {
       "get": {
         "tags": [
           "Files"
@@ -45,8 +61,21 @@
         "parameters": [
           {
             "name": "fileName",
-            "in": "path",
-            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
             "schema": {
               "type": "string"
             }
@@ -59,7 +88,7 @@
         }
       }
     },
-    "/signed-download/{fileName}": {
+    "/api/Files/signed-download": {
       "get": {
         "tags": [
           "Files"
@@ -67,10 +96,32 @@
         "parameters": [
           {
             "name": "fileName",
-            "in": "path",
-            "required": true,
+            "in": "query",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "expiresIn",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 60
             }
           }
         ],

@@ -1,12 +1,14 @@
-﻿using System.Security.Claims;
+﻿
 
 namespace TechHive.Application.Common;
 
 public interface IFileStorage
 {
-    Task<string> UploadAsync(Stream fileStream, string contentType, string? fileName, ClaimsPrincipal user);
-    Task<(Stream Stream, string ContentType)> DownloadAsync(string fileName, ClaimsPrincipal user);
-    Task<string> GetSignedUrlAsync(string fileName, ClaimsPrincipal user, int expiresInSeconds = 60);
+    Task<string> UploadAsync(Stream fileStream, string contentType, string? fileName = null, string username = "default");
+    Task<(Stream Stream, string ContentType)> DownloadAsync(string fileName, string username);
+
+    Task<string> GetSignedUrlAsync(string fileName, string username, int expiresInSeconds = 60);
+    Task<string> GetJwtAsync(string username, string password);
 
 }
 

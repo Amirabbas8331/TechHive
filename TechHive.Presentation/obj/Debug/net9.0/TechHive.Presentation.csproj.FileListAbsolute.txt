@@ -110,6 +110,9 @@ C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\bin\Debug\net9.0\
 C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\bin\Debug\net9.0\Supabase.Postgrest.dll
 C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\bin\Debug\net9.0\Supabase.Realtime.dll
 C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\bin\Debug\net9.0\Supabase.Storage.dll
+C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\bin\Debug\net9.0\System.ClientModel.dll
 C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
 C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\bin\Debug\net9.0\System.Diagnostics.DiagnosticSource.dll
@@ -173,6 +176,3 @@ C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\obj\Debug\net9.0\
 C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\obj\Debug\net9.0\TechHive.Presentation.pdb
 C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\obj\Debug\net9.0\TechHive.Presentation.genruntimeconfig.cache
 C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\obj\Debug\net9.0\ref\TechHive.Presentation.dll
-C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\msigaming\source\repos\TechHive\TechHive.Presentation\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll

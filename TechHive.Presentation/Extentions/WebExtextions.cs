@@ -31,6 +31,7 @@ public static class WebExtextions
     public static WebApplicationBuilder AddApplicationBuilder(this WebApplicationBuilder builder)
     {
         builder.Services.AddControllers();
+        builder.Services.AddScoped<IFileStorage, SupabaseFileStorage>();
         builder.Services.AddExceptionHandler(options =>
         {
             options.StatusCodeSelector = exception => exception switch
@@ -180,8 +181,8 @@ public static class WebExtextions
             .ReadFrom.Configuration(builder.Configuration).CreateLogger();
 
         builder.Services.AddSerilog(serilog);
-        builder.Services.AddAuthentication("Bearer")
-            .AddJwtBearer("Bearer", options =>
+        builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
