@@ -1,9 +1,3 @@
-C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\TechHive.Infrastructure.csproj.AssemblyReference.cache
-C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\TechHive.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\TechHive.Infrastructure.AssemblyInfoInputs.cache
-C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\TechHive.Infrastructure.AssemblyInfo.cs
-C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\TechHive.Infrastructure.csproj.CoreCompileInputs.cache
-C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\TechHive.Infrastructure.sourcelink.json
 C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\bin\Debug\net9.0\TechHive.Infrastructure.deps.json
 C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\bin\Debug\net9.0\TechHive.Infrastructure.dll
 C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\bin\Debug\net9.0\TechHive.Infrastructure.pdb
@@ -11,6 +5,12 @@ C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\bin\Debug\net9.
 C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\bin\Debug\net9.0\TechHive.Domain.dll
 C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\bin\Debug\net9.0\TechHive.Application.pdb
 C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\bin\Debug\net9.0\TechHive.Domain.pdb
+C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\TechHive.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\TechHive.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\TechHive.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\TechHive.Infrastructure.AssemblyInfo.cs
+C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\TechHive.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\TechHive.Infrastructure.sourcelink.json
 C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\TechHive.4DAD9BC9.Up2Date
 C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\TechHive.Infrastructure.dll
 C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\refint\TechHive.Infrastructure.dll

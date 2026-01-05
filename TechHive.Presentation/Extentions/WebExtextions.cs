@@ -19,7 +19,7 @@ using Polly.Timeout;
 using Serilog;
 using Serilog.Sinks.OpenTelemetry;
 using System.Threading.RateLimiting;
-using TechHive.BackGroundJob;
+using TechHive.Application.Common;
 using TechHive.Context;
 using TechHive.CustomHealthCheck;
 using TechHive.Exceptions;
@@ -30,6 +30,7 @@ public static class WebExtextions
 {
     public static WebApplicationBuilder AddApplicationBuilder(this WebApplicationBuilder builder)
     {
+        builder.Services.AddControllers();
         builder.Services.AddExceptionHandler(options =>
         {
             options.StatusCodeSelector = exception => exception switch
@@ -63,6 +64,7 @@ public static class WebExtextions
             .AddCheck<SqlHealthCheck>("custom-sql", HealthStatus.Unhealthy)
             .AddRedis("Redis Connectionstring")
             .AddNpgSql("Database Connectionstring");
+        builder.Services.AddScoped<IFileStorage, SupabaseFileStorage>();
         builder.Services.AddValidatorsFromAssembly(typeof(WebExtextions).Assembly);
         var tokenBucket = new TokenBucketRateLimiter(new TokenBucketRateLimiterOptions
         {
@@ -127,10 +129,9 @@ public static class WebExtextions
         builder.Services.AddReverseProxy()
             .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
         builder.Services.AddExceptionHandler<CustomExceptionHandler>();
-        builder.Services.AddRazorPages();
+
         builder.Services.AddDbContext<ShopDbConext>(option => option.UseNpgsql(builder.Configuration.GetConnectionString("Shop")));
         builder.Services.AddHttpClient();
-
         builder.Logging.ClearProviders();
 
         // Logging pipeline (structured logs)
@@ -205,9 +206,9 @@ public static class WebExtextions
                 };
             });
         builder.Services.AddAuthorization();
-        builder.Services.AddHostedService<PeriodicBackgroundTask>();
+        // builder.Services.AddHostedService<PeriodicBackgroundTask>();
         builder.Services.AddAuthorization();
-
+        builder.Services.AddSwaggerGen();
         return builder;
     }
     public static WebApplication UseWebAppMiddleware(this WebApplication app)
@@ -233,10 +234,10 @@ public static class WebExtextions
         app.UseAuthentication();
         app.UseAuthorization();
         app.MapStaticAssets();
-        app.MapRazorPages()
-           .WithStaticAssets();
+        app.MapControllers();
         app.MapReverseProxy();
-        app.UseExceptionHandler();
+        app.UseSwagger();
+        app.UseSwaggerUI();
         app.MapGet("", () => "").RequireRateLimiting("retry");
         app.Run();
         return app;
