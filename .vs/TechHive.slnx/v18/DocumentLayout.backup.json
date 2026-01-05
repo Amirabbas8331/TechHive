@@ -58,8 +58,7 @@
               "RelativeToolTip": "TechHive.Application\\Common\\IFileStorage.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T14:04:00.347Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T14:04:00.347Z"
             },
             {
               "$type": "Document",
@@ -69,7 +68,7 @@
               "RelativeDocumentMoniker": "TechHive.Presentation\\SupabaseFileStorage.cs",
               "ToolTip": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Presentation\\SupabaseFileStorage.cs",
               "RelativeToolTip": "TechHive.Presentation\\SupabaseFileStorage.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAUwE4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-05T14:03:56.544Z",
               "EditorCaption": ""
@@ -84,8 +83,7 @@
               "RelativeToolTip": "TechHive.Presentation\\Controllers\\FilesController.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAQwCIAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T14:01:36.195Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T14:01:36.195Z"
             }
           ]
         }

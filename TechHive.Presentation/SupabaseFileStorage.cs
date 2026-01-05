@@ -64,7 +64,29 @@ public class SupabaseFileStorage : IFileStorage
         return path;
     }
 
+    public async Task<(Stream Stream, string ContentType)> DownloadAsync(string fileName, ClaimsPrincipal user)
+    {
+        var folder = GetUserFolder(user);
+        var path = $"{folder}/{fileName}";
 
+        var bytes = await _client.Storage
+            .From(_bucket)
+            .Download(supabasePath: path, onProgress: null, transformOptions: null);
+
+        return (new MemoryStream(bytes), "application/octet-stream");
+    }
+
+    public async Task<string> GetSignedUrlAsync(string fileName, ClaimsPrincipal user, int expiresInSeconds = 60)
+    {
+        var folder = GetUserFolder(user);
+        var path = $"{folder}/{fileName}";
+
+        var url = await _client.Storage
+            .From(_bucket)
+            .CreateSignedUrl(path, expiresInSeconds);
+
+        return url;
+    }
 }
 
 
