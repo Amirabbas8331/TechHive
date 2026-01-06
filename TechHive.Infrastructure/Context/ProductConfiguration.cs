@@ -43,12 +43,13 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
 
 
         builder.Property(p => p.Status)
-                  .HasConversion(
-                      status => status.Code,
-                      code => ProductStatus.FromCode(code).Value
-                  )
-                  .HasColumnName("StatusCode")
-                  .IsRequired();
+    .HasConversion(
+        status => status.Code,
+        code => ProductStatus.FromCode(code).Value
+    )
+    .HasDefaultValue(ProductStatus.Draft.Code)
+    .HasMaxLength(20)
+    .IsRequired();
 
         builder.OwnsOne(p => p.Price, money =>
             {

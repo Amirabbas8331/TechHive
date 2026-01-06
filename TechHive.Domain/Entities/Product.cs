@@ -13,7 +13,7 @@ public class Product : Entity<ProductId>
     public ProductName Name { get; private set; }
     public ProductCode Code { get; private set; }
     public Money? Price { get; private set; }
-    public ProductStatus Status { get; private set; } = ProductStatus.Draft;
+    public ProductStatus Status { get; private set; }
     public string? Description { get; set; }
     private Product() : base(default!)
     {

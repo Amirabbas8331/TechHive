@@ -10,17 +10,14 @@ namespace TechHive.Application.Products.Command.UpdateProducts;
 public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, Result<ProductId>>
 {
     private readonly IGenericRepository<Product> _repository;
-    private readonly IUnitOfWork _unitOfWork;
 
-    public UpdateProductCommandHandler(IGenericRepository<Product> repository, IUnitOfWork unitOfWork)
+    public UpdateProductCommandHandler(IGenericRepository<Product> repository)
     {
         _repository = repository;
-        _unitOfWork = unitOfWork;
     }
     public async Task<Result<ProductId>> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
     {
-       await _repository.UpdateAsync(request.Product);
-        await _unitOfWork.CommitChangesAsync();
+        await _repository.UpdateAsync(request.Product);
         return Result.Success(request.Product.Id);
     }
 }

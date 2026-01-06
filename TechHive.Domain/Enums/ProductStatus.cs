@@ -8,7 +8,6 @@ public sealed class ProductStatus : Enumeration<ProductStatus>
     public static readonly ProductStatus Archived = new(4, "ARCHIVED", nameof(Archived));
     public static readonly ProductStatus Deleted = new(5, "DELETED", nameof(Deleted));
     private ProductStatus(int id, string code, string name) : base(id, code, name) { }
-
     public bool CanBeActivated => this is { Code: "DRAFT" or "INACTIVE" };
     public bool CanBeInactivated => this is { Code: "DRAFT" or "ACTIVE" };
     public bool CanBeArchived => this != Deleted;

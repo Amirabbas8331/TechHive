@@ -342,8 +342,7 @@
           },
           "priceAmount": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "priceCurrency": {
             "type": "string",
@@ -380,7 +379,8 @@
           },
           "symbol": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false

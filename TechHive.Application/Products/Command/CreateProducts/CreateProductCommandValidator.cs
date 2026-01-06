@@ -21,9 +21,9 @@ public class CreateProductCommandValidator : AbstractValidator<CreateProductComm
             .WithState(_ => ProductErrors.Code.Empty)
             .WithState(_ => ProductErrors.Code.InvalidFormat);
 
-        RuleFor(x => x.Price)
+        RuleFor(x => x.PriceAmount)
             .NotNull()
-            .Must(x => x.Amount > 0)
+            .Must(x => x > 0)
             .WithErrorCode("400")
             .WithMessage("Product price must be greater than zero.");
 

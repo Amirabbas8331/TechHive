@@ -1,5 +1,4 @@
-﻿
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TechHive.Application.Common;
@@ -7,7 +6,6 @@ using TechHive.Application.Products.Command.CreateProducts;
 using TechHive.Application.Products.Command.DeleteProducts;
 using TechHive.Application.Products.Command.UpdateProducts;
 using TechHive.Application.Products.Query.GetProducts;
-using TechHive.Domain.Enums;
 using TechHive.Domain.ValueObjects;
 using static TechHive.Presentation.SupabaseFileStorage;
 
@@ -30,39 +28,15 @@ public class ProductController : ApiController
     [HttpPost("Create")]
     public async Task<IActionResult> CreateProduct([FromBody] CreateProductRequestDto request)
     {
-        if (request == null)
-            return BadRequest("Invalid request payload");
-
-        var nameResult = ProductName.Create(request.Name);
-        if (nameResult.IsFailure)
-            return BadRequest(nameResult.Error);
-
-        var codeResult = ProductCode.Create(request.Code);
-        if (codeResult.IsFailure)
-            return BadRequest(codeResult.Error);
-
-        Money? price = null;
-        if (request.PriceAmount.HasValue)
-        {
-            var moneyResult = Money.Create(request.PriceAmount.Value, Currency.FromCode(request.PriceCurrency).Value);
-            if (moneyResult.IsFailure)
-                return BadRequest(moneyResult.Error);
-
-            price = moneyResult.Value;
-        }
-
-        var statusResult = ProductStatus.FromCode(request.Status);
-
-        if (statusResult.IsFailure)
-            return BadRequest(statusResult.Error);
 
         var command = new CreateProductCommand(
-            Name: nameResult.Value,
-            Code: codeResult.Value,
-            Price: price,
-            Status: statusResult.Value,
-            Description: request.Description
-        );
+         Name: request.Name,
+         Code: request.Code,
+          request.PriceAmount,
+          request.PriceCurrency,
+          request.Status,
+          request.Description
+     );
 
         var result = await _sender.Send(command);
 
@@ -140,8 +114,8 @@ public class CreateProductRequestDto
 {
     public string Name { get; set; } = string.Empty;
     public string Code { get; set; } = string.Empty;
-    public decimal? PriceAmount { get; set; }
-    public string PriceCurrency { get; set; } = "USD";
-    public string Status { get; set; } = string.Empty;
+    public decimal PriceAmount { get; set; }           // نه nullable
+    public string PriceCurrency { get; set; } = "USD"; // می‌تونی default بذاری
+    public string Status { get; set; } = "ACTIVE";
     public string? Description { get; set; }
 }

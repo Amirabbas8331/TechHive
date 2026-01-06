@@ -11,7 +11,6 @@ public abstract class Enumeration<T> : IEquatable<T>
 
     static Enumeration()
     {
-        // اتوماتیک همه فیلدهای static از نوع T رو پیدا و ثبت کن
         var fields = typeof(T).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly);
 
         foreach (var field in fields)
