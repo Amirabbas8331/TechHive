@@ -1,7 +1,6 @@
 ﻿using FluentValidation;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -211,13 +210,7 @@ public static class WebExtextions
                     }
                 };
             });
-        builder.Services.AddAuthorization(x =>
-        {
-            x.AddPolicy("Admin", new AuthorizationPolicy([], [])
-            {
-
-            });
-        });
+        builder.Services.AddAuthorization();
         // builder.Services.AddHostedService<PeriodicBackgroundTask>();
         builder.Services.AddAuthorization();
         builder.Services.AddSwaggerGen();
