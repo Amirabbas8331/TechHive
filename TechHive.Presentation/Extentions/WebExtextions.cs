@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -43,6 +44,10 @@ public static class WebExtextions
 
                 _ => StatusCodes.Status500InternalServerError
             };
+        });
+        builder.Services.AddStackExchangeRedisCache(config =>
+        {
+            config.Configuration = builder.Configuration["Redis"];
         });
         builder.Services.AddProblemDetails(option =>
         {
@@ -206,7 +211,13 @@ public static class WebExtextions
                     }
                 };
             });
-        builder.Services.AddAuthorization();
+        builder.Services.AddAuthorization(x =>
+        {
+            x.AddPolicy("Admin", new AuthorizationPolicy([], [])
+            {
+
+            });
+        });
         // builder.Services.AddHostedService<PeriodicBackgroundTask>();
         builder.Services.AddAuthorization();
         builder.Services.AddSwaggerGen();

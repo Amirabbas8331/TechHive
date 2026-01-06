@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2AnGdGwaypQ=",
+  "dgSpecHash": "U6HQ9TNd05g=",
   "success": true,
   "projectFilePath": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Presentation\\TechHive.Presentation.csproj",
   "expectedPackageFiles": [
@@ -35,6 +35,7 @@
     "C:\\Users\\msigaming\\.nuget\\packages\\microsoft.extensions.ambientmetadata.application\\9.10.0\\microsoft.extensions.ambientmetadata.application.9.10.0.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.11\\microsoft.extensions.caching.abstractions.9.0.11.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\microsoft.extensions.caching.memory\\9.0.11\\microsoft.extensions.caching.memory.9.0.11.nupkg.sha512",
+    "C:\\Users\\msigaming\\.nuget\\packages\\microsoft.extensions.caching.stackexchangeredis\\9.0.11\\microsoft.extensions.caching.stackexchangeredis.9.0.11.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\microsoft.extensions.compliance.abstractions\\9.10.0\\microsoft.extensions.compliance.abstractions.9.10.0.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\microsoft.extensions.configuration\\10.0.0\\microsoft.extensions.configuration.10.0.0.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\10.0.0\\microsoft.extensions.configuration.abstractions.10.0.0.nupkg.sha512",
@@ -104,7 +105,7 @@
     "C:\\Users\\msigaming\\.nuget\\packages\\serilog.sinks.debug\\3.0.0\\serilog.sinks.debug.3.0.0.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\serilog.sinks.file\\7.0.0\\serilog.sinks.file.7.0.0.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\serilog.sinks.opentelemetry\\4.2.0\\serilog.sinks.opentelemetry.4.2.0.nupkg.sha512",
-    "C:\\Users\\msigaming\\.nuget\\packages\\stackexchange.redis\\2.7.4\\stackexchange.redis.2.7.4.nupkg.sha512",
+    "C:\\Users\\msigaming\\.nuget\\packages\\stackexchange.redis\\2.7.27\\stackexchange.redis.2.7.27.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\supabase\\1.1.1\\supabase.1.1.1.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\supabase.core\\1.0.0\\supabase.core.1.0.0.nupkg.sha512",
     "C:\\Users\\msigaming\\.nuget\\packages\\supabase.functions\\2.0.0\\supabase.functions.2.0.0.nupkg.sha512",

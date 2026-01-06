@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\msigaming\\source\\repos\\TechHive\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6295F666-A1AC-8083-624A-B60857CA2B2A}|TechHive.Presentation\\TechHive.Presentation.csproj|c:\\users\\msigaming\\source\\repos\\techhive\\techhive.presentation\\supabasefilestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6295F666-A1AC-8083-624A-B60857CA2B2A}|TechHive.Presentation\\TechHive.Presentation.csproj|solutionrelative:techhive.presentation\\supabasefilestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6295F666-A1AC-8083-624A-B60857CA2B2A}|TechHive.Presentation\\TechHive.Presentation.csproj|c:\\users\\msigaming\\source\\repos\\techhive\\techhive.presentation\\extentions\\webextextions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6295F666-A1AC-8083-624A-B60857CA2B2A}|TechHive.Presentation\\TechHive.Presentation.csproj|solutionrelative:techhive.presentation\\extentions\\webextextions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,14 +43,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SupabaseFileStorage.cs",
-              "DocumentMoniker": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Presentation\\SupabaseFileStorage.cs",
-              "RelativeDocumentMoniker": "TechHive.Presentation\\SupabaseFileStorage.cs",
-              "ToolTip": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Presentation\\SupabaseFileStorage.cs",
-              "RelativeToolTip": "TechHive.Presentation\\SupabaseFileStorage.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAkwAcAAAAVAAAAAAAAAA==",
+              "Title": "WebExtextions.cs",
+              "DocumentMoniker": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Presentation\\Extentions\\WebExtextions.cs",
+              "RelativeDocumentMoniker": "TechHive.Presentation\\Extentions\\WebExtextions.cs",
+              "ToolTip": "C:\\Users\\msigaming\\source\\repos\\TechHive\\TechHive.Presentation\\Extentions\\WebExtextions.cs",
+              "RelativeToolTip": "TechHive.Presentation\\Extentions\\WebExtextions.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACIAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T16:16:27.017Z",
+              "WhenOpened": "2026-01-06T13:20:03.168Z",
               "EditorCaption": ""
             }
           ]

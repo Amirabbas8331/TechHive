@@ -8,7 +8,7 @@ public interface IFileStorage
     Task<(Stream Stream, string ContentType)> DownloadAsync(string fileName, string username);
 
     Task<string> GetSignedUrlAsync(string fileName, string username, int expiresInSeconds = 60);
-    Task<string> GetJwtAsync(string username, string password);
+    Task<string> GetTokenAsync(string username, string password);
 
 }
 

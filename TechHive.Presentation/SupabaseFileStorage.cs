@@ -1,4 +1,7 @@
-﻿using Supabase;
+﻿using Microsoft.Extensions.Caching.Distributed;
+using Supabase;
+using System.Text;
+using System.Text.Json;
 using TechHive.Application.Common;
 
 namespace TechHive.Presentation;
@@ -8,15 +11,12 @@ public class SupabaseFileStorage : IFileStorage
     private readonly Client _client;
     private readonly string _bucket;
     private readonly HttpClient _jwtClient;
+    private readonly IDistributedCache _cache;
+    private const string CacheKeyPrefix = "JwtToken_";
 
-    // Cache ساده برای JWT
-    private string? _cachedToken;
-    private DateTime _expiresAt;
-    private string? _cachedUsername;
-    private string? _cachedPassword;
-
-    public SupabaseFileStorage(IConfiguration config, HttpClient jwtClient)
+    public SupabaseFileStorage(IConfiguration config, HttpClient jwtClient, IDistributedCache cache)
     {
+        _cache = cache;
         _jwtClient = jwtClient;
         var jwtApiUrl = config["JwtApi:BaseUrl"] ?? "https://localhost:7141/";
         _jwtClient.BaseAddress = new Uri(jwtApiUrl);
@@ -24,7 +24,7 @@ public class SupabaseFileStorage : IFileStorage
 
         _bucket = config["Supabase:Bucket"] ?? throw new ArgumentNullException("Bucket name missing in config");
 
-        _client = new Supabase.Client(
+        _client = new Client(
             config["Supabase:Url"],
             config["Supabase:ServiceKey"],
             new SupabaseOptions
@@ -37,43 +37,58 @@ public class SupabaseFileStorage : IFileStorage
         _client.InitializeAsync().GetAwaiter().GetResult();
     }
 
-    public async Task<string> GetJwtAsync(string username, string password)
+    public async Task<string> GetTokenAsync(string email, string password)
     {
-        if (_cachedToken != null
-            && DateTime.UtcNow < _expiresAt
-            && _cachedUsername == username
-            && _cachedPassword == password)
+        string cacheKey = CacheKeyPrefix + email;
+
+        byte[]? cachedData = await _cache.GetAsync(cacheKey);
+        if (cachedData != null)
         {
-            return _cachedToken;
+            string json = Encoding.UTF8.GetString(cachedData);
+            var cached = JsonSerializer.Deserialize<CachedTokenData>(json);
+
+            if (cached != null && DateTime.UtcNow < cached.ExpiresAt)
+            {
+                return cached.Token;
+            }
         }
 
-        var requestBody = new { email = username, password };
-
+        var requestBody = new { email, password };
         var loginResponse = await _jwtClient.PostAsJsonAsync("users/login", requestBody);
 
         if (!loginResponse.IsSuccessStatusCode)
         {
             var errorContent = await loginResponse.Content.ReadAsStringAsync();
-            // اگر خطا "user not found" بود، پیام واضح بده
             if (errorContent.Contains("The user was not found", StringComparison.OrdinalIgnoreCase))
             {
-                throw new UnauthorizedAccessException("کاربر یافت نشد. لطفاً ابتدا ثبت‌نام کنید.");
+                throw new UnauthorizedAccessException("User Not Found");
             }
-            throw new HttpRequestException($"خطا در احراز هویت: {loginResponse.StatusCode} - {errorContent}");
+            throw new HttpRequestException($"Exception in Authorization: {loginResponse.StatusCode} - {errorContent}");
         }
 
         var loginData = await loginResponse.Content.ReadFromJsonAsync<LoginResponse>();
-
         if (loginData == null || string.IsNullOrEmpty(loginData.AccessToken))
             throw new Exception("Failed to get JWT from jwtapi: empty response or no access token");
 
-        _cachedToken = loginData.AccessToken;
-        _cachedUsername = username;
-        _cachedPassword = password;
-        _expiresAt = DateTime.UtcNow.AddSeconds(loginData.ExpiresIn - 10); // 10 ثانیه زودتر منقضی شود
+        var newCached = new CachedTokenData
+        {
+            Token = loginData.AccessToken,
+            ExpiresAt = DateTime.UtcNow.AddSeconds(loginData.ExpiresIn - 10)
+        };
 
-        return _cachedToken;
+        string jsonToCache = JsonSerializer.Serialize(newCached);
+        byte[] bytesToCache = Encoding.UTF8.GetBytes(jsonToCache);
+
+        var options = new DistributedCacheEntryOptions
+        {
+            AbsoluteExpiration = newCached.ExpiresAt
+        };
+
+        await _cache.SetAsync(cacheKey, bytesToCache, options);
+
+        return loginData.AccessToken;
     }
+
 
     private string GetUserFolder(string username)
     {
@@ -139,5 +154,10 @@ public class SupabaseFileStorage : IFileStorage
     {
         public string AccessToken { get; set; } = default!;
         public int ExpiresIn { get; set; }
+    }
+    private class CachedTokenData
+    {
+        public string Token { get; set; } = string.Empty;
+        public DateTime ExpiresAt { get; set; }
     }
 }
