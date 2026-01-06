@@ -37,3 +37,4 @@ E:\Repos\JwtApi\bin\Debug\JwtApi.pdb
 E:\Repos\JwtApi\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 E:\Repos\JwtApi\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 E:\Repos\JwtApi\obj\Debug\docker-c.35A3FFBA.Up2Date
+C:\Users\msigaming\source\repos\TechHive\JwtApi\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache

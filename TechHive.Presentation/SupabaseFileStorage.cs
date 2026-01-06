@@ -73,7 +73,8 @@ public class SupabaseFileStorage : IFileStorage
         var newCached = new CachedTokenData
         {
             Token = loginData.AccessToken,
-            ExpiresAt = DateTime.UtcNow.AddSeconds(loginData.ExpiresIn - 10)
+            ExpiresAt = DateTime.UtcNow.AddSeconds(loginData.ExpiresIn - 10),
+            Role = loginData.Role
         };
 
         string jsonToCache = JsonSerializer.Serialize(newCached);
@@ -90,15 +91,15 @@ public class SupabaseFileStorage : IFileStorage
     }
 
 
-    private string GetUserFolder(string username)
+    private string GetUserFolder(string email)
     {
-        if (string.IsNullOrEmpty(username))
+        if (string.IsNullOrEmpty(email))
             throw new UnauthorizedAccessException("Username is required");
 
-        return $"users/{username}";
+        return $"users/{email}";
     }
 
-    public async Task<string> UploadAsync(Stream fileStream, string contentType, string? fileName = null, string username = "default")
+    public async Task<string> UploadAsync(Stream fileStream, string contentType, string? fileName = null, string email = "default")
     {
         if (fileStream == null || fileStream.Length == 0)
             throw new ArgumentException("File stream is empty", nameof(fileStream));
@@ -109,7 +110,7 @@ public class SupabaseFileStorage : IFileStorage
         await fileStream.CopyToAsync(ms);
         ms.Position = 0;
 
-        var folder = GetUserFolder(username);
+        var folder = GetUserFolder(email);
         var path = $"{folder}/{fileName}";
 
         await _client.Storage
@@ -126,9 +127,9 @@ public class SupabaseFileStorage : IFileStorage
         return path;
     }
 
-    public async Task<(Stream Stream, string ContentType)> DownloadAsync(string fileName, string username)
+    public async Task<(Stream Stream, string ContentType)> DownloadAsync(string fileName, string email)
     {
-        var folder = GetUserFolder(username);
+        var folder = GetUserFolder(email);
         var path = $"{folder}/{fileName}";
 
         var bytes = await _client.Storage
@@ -138,9 +139,9 @@ public class SupabaseFileStorage : IFileStorage
         return (new MemoryStream(bytes), "application/octet-stream");
     }
 
-    public async Task<string> GetSignedUrlAsync(string fileName, string username, int expiresInSeconds = 60)
+    public async Task<string> GetSignedUrlAsync(string fileName, string email, int expiresInSeconds = 60)
     {
-        var folder = GetUserFolder(username);
+        var folder = GetUserFolder(email);
         var path = $"{folder}/{fileName}";
 
         var url = await _client.Storage
@@ -154,10 +155,13 @@ public class SupabaseFileStorage : IFileStorage
     {
         public string AccessToken { get; set; } = default!;
         public int ExpiresIn { get; set; }
+        public string Role { get; set; } = default!;
     }
     private class CachedTokenData
     {
-        public string Token { get; set; } = string.Empty;
+        public string Token { get; set; } = default!;
         public DateTime ExpiresAt { get; set; }
+        public string Role { get; set; } = default!;
+
     }
 }

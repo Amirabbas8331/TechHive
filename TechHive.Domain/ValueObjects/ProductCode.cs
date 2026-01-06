@@ -9,7 +9,7 @@ public record ProductCode
 {
     public string Value { get; }
 
-    private ProductCode(string value) => Value = value;
+    public ProductCode(string value) => Value = value;
 
     public static Result<ProductCode> Create(string value) =>
         ValueObjectFactory.Create(value, ProductCodeRules.Validate, v => new ProductCode(v));

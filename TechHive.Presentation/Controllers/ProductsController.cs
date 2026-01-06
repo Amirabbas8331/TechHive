@@ -1,5 +1,6 @@
 ﻿
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TechHive.Application.Products.Command.CreateProducts;
 using TechHive.Application.Products.Command.DeleteProducts;
@@ -19,15 +20,15 @@ public class ProductsController : ApiController
     {
         _sender = sender;
     }
+    [Authorize(Roles = "Admin")]
     [HttpPost]
     public async Task<IActionResult> CreateProduct(CreateProductCommand request)
     {
-        var command = new CreateProductCommand(request.Name,request.Code,request.Price,request.Status,request.Description);
-        var CreateProductresult = await _sender.Send(command);
+        var CreateProductresult = await _sender.Send(request);
         return Ok(CreateProductresult);
 
     }
-    
+    [Authorize(Roles = "Admin")]
     [HttpDelete("{ProductId:int}")]
     public async Task<IActionResult> DeleteProduct(ProductId productId)
     {
@@ -43,14 +44,12 @@ public class ProductsController : ApiController
         var GetProductResult = await _sender.Send(query);
         return Ok(GetProductResult);
     }
-
+    [Authorize(Roles = "Admin")]
     [HttpPut]
     public async Task<IActionResult> UpdateProduct(UpdateProductCommand command)
     {
-        var query = new UpdateProductCommand(command.Product);
-        var UpdateProductresult = await _sender.Send(query);
-        return UpdateProductresult.IsSuccess?Ok(UpdateProductresult):Problem();
+        var UpdateProductresult = await _sender.Send(command);
+        return UpdateProductresult.IsSuccess ? Ok(UpdateProductresult) : Problem();
 
     }
- 
 }

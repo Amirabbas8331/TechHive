@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TechHive.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b6decb6ba4b16ad219dbcfb12877af72c568912d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ac5bc0edece5fb107be298c6c2c94ad47e7628b")]
 [assembly: System.Reflection.AssemblyProductAttribute("TechHive.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TechHive.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

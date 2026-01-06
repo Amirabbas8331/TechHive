@@ -16,3 +16,5 @@ C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.
 C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\refint\TechHive.Infrastructure.dll
 C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\TechHive.Infrastructure.pdb
 C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\ref\TechHive.Infrastructure.dll
+C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\bin\Debug\net9.0\TechHive.Infrastructure.runtimeconfig.json
+C:\Users\msigaming\source\repos\TechHive\TechHive.Infrastructure\obj\Debug\net9.0\TechHive.Infrastructure.genruntimeconfig.cache

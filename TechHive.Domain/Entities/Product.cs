@@ -8,15 +8,16 @@ using TechHive.Domain.ValueObjects;
 
 namespace TechHive.Model;
 
-public class Product:Entity<ProductId>
+public class Product : Entity<ProductId>
 {
-
     public ProductName Name { get; private set; }
     public ProductCode Code { get; private set; }
     public Money? Price { get; private set; }
-    public ProductStatus Status { get; private set; }
+    public ProductStatus Status { get; private set; } = ProductStatus.Draft;
     public string? Description { get; set; }
-
+    private Product() : base(default!)
+    {
+    }
     private Product(
         ProductId id,
         ProductName name,

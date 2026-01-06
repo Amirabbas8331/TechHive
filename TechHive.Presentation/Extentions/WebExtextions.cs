@@ -1,6 +1,8 @@
 ﻿using FluentValidation;
 using HealthChecks.UI.Client;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -43,6 +45,7 @@ public static class WebExtextions
 
                 _ => StatusCodes.Status500InternalServerError
             };
+
         });
         builder.Services.AddStackExchangeRedisCache(config =>
         {
@@ -131,6 +134,9 @@ public static class WebExtextions
             });
         });
 
+        builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
+        builder.Services.AddHttpContextAccessor();
+        builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
         builder.Services.AddReverseProxy()
             .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
         builder.Services.AddExceptionHandler<CustomExceptionHandler>();
@@ -197,7 +203,8 @@ public static class WebExtextions
                     ValidIssuer = "JwtApi",
                     ValidAudience = "account",
                     IssuerSigningKey = new SymmetricSecurityKey(
-                        System.Text.Encoding.UTF8.GetBytes("ThisIsASecretKeyForJwtTokenGeneration"))
+                        System.Text.Encoding.UTF8.GetBytes("ThisIsASecretKeyForJwtTokenGeneration")),
+                    RoleClaimType = "Role"
                 };
                 options.Events = new JwtBearerEvents
                 {
@@ -223,6 +230,24 @@ public static class WebExtextions
             app.UseExceptionHandler("/Error");
             app.UseHsts();
         }
+        app.UseExceptionHandler(errorApp =>
+        {
+            errorApp.Run(async context =>
+            {
+                var exception = context.Features.Get<IExceptionHandlerFeature>()?.Error;
+
+                if (exception is UnauthorizedAccessException)
+                {
+                    context.Response.StatusCode = StatusCodes.Status403Forbidden;
+                    await context.Response.WriteAsJsonAsync(new { message = exception.Message });
+                }
+                else
+                {
+                    context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+                    await context.Response.WriteAsJsonAsync(new { message = "خطای سرور" });
+                }
+            });
+        });
         app.UseHttpsRedirection();
         app.MapHealthChecks("/healthCheck",
             new HealthCheckOptions()

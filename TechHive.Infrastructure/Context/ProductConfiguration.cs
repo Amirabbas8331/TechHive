@@ -2,6 +2,8 @@
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using TechHive.Domain.Enums;
+using TechHive.Domain.ValueObjects;
 using TechHive.Model;
 
 namespace eShop.Catalog.Infrastructure.Products;
@@ -10,16 +12,60 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
 {
     public void Configure(EntityTypeBuilder<Product> builder)
     {
+
         builder.ToTable("Products");
 
-        builder.HasKey(m => m.Id);
+        builder.HasKey(p => p.Id);
 
-        builder.Property(m => m.Id).ValueGeneratedNever();
+        builder.Property(p => p.Id)
+                  .HasConversion(
+                      productId => productId.Value,
+                      value => new ProductId(value)
+                  )
+                  .ValueGeneratedNever()
+                  .HasColumnName("Id");
 
-        builder.Property(m => m.Name).IsRequired().IsUnicode().HasMaxLength(100);
+        builder.Property(p => p.Name)
+                  .HasConversion(name => name.Value, value => new ProductName(value))
+                  .HasColumnName("Name")
+                  .HasMaxLength(200)
+                  .IsRequired();
 
-        builder.Property(m => m.Price).IsRequired().HasPrecision(10, 3);
+        builder.Property(p => p.Code)
+                  .HasConversion(code => code.Value, value => new ProductCode(value))
+                  .HasColumnName("Code")
+                  .HasMaxLength(50)
+                  .IsRequired();
 
-        builder.Property(m => m.Description).IsRequired(false).IsUnicode().HasMaxLength(250);
+        builder.Property(p => p.Description)
+                  .HasMaxLength(1000)
+                  .IsRequired(false);
+
+
+        builder.Property(p => p.Status)
+                  .HasConversion(
+                      status => status.Code,
+                      code => ProductStatus.FromCode(code).Value
+                  )
+                  .HasColumnName("StatusCode")
+                  .IsRequired();
+
+        builder.OwnsOne(p => p.Price, money =>
+            {
+                money.Property(m => m.Amount)
+                     .HasColumnName("PriceAmount")
+                     .HasColumnType("decimal(18,2)")
+                     .IsRequired();
+
+                money.Property(m => m.Currency)
+                     .HasColumnName("PriceCurrency")
+                     .HasConversion(
+                         c => c.Code,
+                         code => Currency.FromCode(code).Value
+                     )
+                     .HasMaxLength(3)
+                     .IsRequired();
+            });
+
     }
 }
