@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
-
-namespace JwtApi.Api.Users;
+﻿namespace JwtApi.Api.Users;
 
 public static class UserEndpoints
 {
@@ -15,15 +12,17 @@ public static class UserEndpoints
             User user = await useCase.Handle(request);
             return Results.Ok(user);
         }
-          )  .WithTags(Tag);
+          ).WithTags(Tag);
 
         builder.MapPost("users/login", async (LoginUser.Request request, LoginUser useCase) =>
         {
-            var token = await useCase.Handle(request);
+            var result = await useCase.Handle(request);
             return Results.Ok(new
             {
-                accessToken = token,
-                expiresIn = 3600 
+                accessToken = result.Token,
+                roles = result.Role,
+                expiresIn = 3600,
+
             });
         }).WithTags(Tag);
 

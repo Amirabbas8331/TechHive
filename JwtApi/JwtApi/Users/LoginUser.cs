@@ -3,11 +3,11 @@ using JwtApi.Api.Users.Infrastructure;
 
 namespace JwtApi.Api.Users;
 
-public sealed class LoginUser(AppDbContext context,PasswordHasher passwordHasher, TokenProvider tokenProvider)
+public sealed class LoginUser(AppDbContext context, PasswordHasher passwordHasher, TokenProvider tokenProvider)
 {
     public sealed record Request(string Email, string Password);
-
-    public async Task<string> Handle(Request request)
+    public sealed record Response(string Token, string Role);
+    public async Task<Response> Handle(Request request)
     {
         User? user = await context.Users.GetByEmail(request.Email);
 
@@ -24,7 +24,7 @@ public sealed class LoginUser(AppDbContext context,PasswordHasher passwordHasher
         }
 
         string token = tokenProvider.Create(user);
-
-        return token;
+        string role = user.Role;
+        return new Response(token, role);
     }
 }
