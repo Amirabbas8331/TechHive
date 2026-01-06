@@ -21,25 +21,35 @@ public class AuthorizationBehavior<TRequest, TResponse> : IPipelineBehavior<TReq
             .GetCustomAttributes<AuthorizeRolesAttribute>(inherit: true)
             .FirstOrDefault();
 
+
         if (authorizeAttribute == null)
         {
             return await next();
         }
 
-        var httpContext = _httpContextAccessor.HttpContext
-            ?? throw new UnauthorizedAccessException("Accsess Denied");
+        var httpContext = _httpContextAccessor.HttpContext;
 
-        if (!httpContext.User.Identity?.IsAuthenticated ?? true)
+        if (httpContext == null)
         {
-            throw new UnauthorizedAccessException("Not Authorized");
+            throw new UnauthorizedAccessException("No HTTP context available.");
         }
 
-        bool hasRequiredRole = authorizeAttribute.Roles
-            .Any(requiredRole => httpContext.User.IsInRole(requiredRole));
 
-        if (!hasRequiredRole)
+        if (!httpContext.User.Identity?.IsAuthenticated ?? false)
         {
-            throw new ForbiddenAccessException("UnauthorizedAccessException");
+            throw new UnauthorizedAccessException("User is not authenticated.");
+        }
+
+        var requiredRole = authorizeAttribute.role;
+
+        if (string.IsNullOrEmpty(requiredRole))
+        {
+            return await next();
+        }
+
+        if (!httpContext.User.IsInRole(requiredRole))
+        {
+            throw new ForbiddenAccessException("User does not have the required role.");
         }
 
         return await next();

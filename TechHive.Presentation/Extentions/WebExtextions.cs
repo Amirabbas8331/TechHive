@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi;
 using Npgsql;
 using OpenTelemetry;
 using OpenTelemetry.Metrics;
@@ -22,9 +23,13 @@ using Serilog;
 using Serilog.Sinks.OpenTelemetry;
 using System.Threading.RateLimiting;
 using TechHive.Application.Common;
+using TechHive.Application.Products.Command.CreateProducts;
 using TechHive.Context;
 using TechHive.CustomHealthCheck;
+using TechHive.Domain.Abstraction;
 using TechHive.Exceptions;
+using TechHive.Infrastructure.Repositories;
+using TechHive.Model;
 
 namespace TechHive.Presentation.Extentions;
 
@@ -33,7 +38,6 @@ public static class WebExtextions
     public static WebApplicationBuilder AddApplicationBuilder(this WebApplicationBuilder builder)
     {
         builder.Services.AddControllers();
-        builder.Services.AddScoped<IFileStorage, SupabaseFileStorage>();
         builder.Services.AddExceptionHandler(options =>
         {
             options.StatusCodeSelector = exception => exception switch
@@ -72,7 +76,6 @@ public static class WebExtextions
             .AddCheck<SqlHealthCheck>("custom-sql", HealthStatus.Unhealthy)
             .AddRedis("Redis Connectionstring")
             .AddNpgSql("Database Connectionstring");
-        builder.Services.AddScoped<IFileStorage, SupabaseFileStorage>();
         builder.Services.AddValidatorsFromAssembly(typeof(WebExtextions).Assembly);
         var tokenBucket = new TokenBucketRateLimiter(new TokenBucketRateLimiterOptions
         {
@@ -135,8 +138,12 @@ public static class WebExtextions
         });
 
         builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
+        builder.Services.AddScoped<IFileStorage, SupabaseFileStorage>();
+        builder.Services.AddScoped<IGenericRepository<Product>, ProductRepository>();
+        builder.Services.AddScoped<IUnitOfWork, ShopDbConext>();
+        builder.Services.AddSingleton<IIdGenerator<long>, SequentialLongIdGenerator>();
         builder.Services.AddHttpContextAccessor();
-        builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+        builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateProductCommand).Assembly));
         builder.Services.AddReverseProxy()
             .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
         builder.Services.AddExceptionHandler<CustomExceptionHandler>();
@@ -204,23 +211,26 @@ public static class WebExtextions
                     ValidAudience = "account",
                     IssuerSigningKey = new SymmetricSecurityKey(
                         System.Text.Encoding.UTF8.GetBytes("ThisIsASecretKeyForJwtTokenGeneration")),
-                    RoleClaimType = "Role"
-                };
-                options.Events = new JwtBearerEvents
-                {
-                    OnMessageReceived = context =>
-                    {
-                        var token = context.Request.Cookies["AuthToken"];
-                        if (!string.IsNullOrEmpty(token))
-                            context.Token = token;
-                        return Task.CompletedTask;
-                    }
                 };
             });
         builder.Services.AddAuthorization();
         // builder.Services.AddHostedService<PeriodicBackgroundTask>();
         builder.Services.AddAuthorization();
-        builder.Services.AddSwaggerGen();
+        builder.Services.AddSwaggerGen(c =>
+        {
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+
+
+            c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            {
+                Description = "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\"",
+                Name = "Authorization",
+                In = ParameterLocation.Header,
+                Type = SecuritySchemeType.ApiKey,
+                Scheme = "Bearer"
+            });
+
+        });
         return builder;
     }
     public static WebApplication UseWebAppMiddleware(this WebApplication app)

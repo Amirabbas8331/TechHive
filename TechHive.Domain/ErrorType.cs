@@ -31,6 +31,6 @@ public sealed class ErrorType : Enumeration<ErrorType>
     private ErrorType(int id, string code, string name)
         : base(id, code, name)
     {
-        Register(this);
+
     }
 }

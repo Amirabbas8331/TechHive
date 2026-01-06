@@ -131,6 +131,10 @@
           "password": {
             "type": "string",
             "nullable": true
+          },
+          "adminId": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

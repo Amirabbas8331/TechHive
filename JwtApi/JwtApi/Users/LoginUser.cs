@@ -6,7 +6,7 @@ namespace JwtApi.Api.Users;
 public sealed class LoginUser(AppDbContext context, PasswordHasher passwordHasher, TokenProvider tokenProvider)
 {
     public sealed record Request(string Email, string Password);
-    public sealed record Response(string Token, string Role);
+    public sealed record Response(string Token, string role);
     public async Task<Response> Handle(Request request)
     {
         User? user = await context.Users.GetByEmail(request.Email);

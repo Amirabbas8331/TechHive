@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "TechHive.Presentation.Extentions.WebExtextions\u002B\u003C\u003Ec",
-    "Method": "\u003CUseWebAppMiddleware\u003Eb__1_0",
+    "Method": "\u003CUseWebAppMiddleware\u003Eb__1_1",
     "RelativePath": "",
     "HttpMethod": "GET",
     "IsController": false,
@@ -31,7 +31,7 @@
         "IsRequired": false
       },
       {
-        "Name": "username",
+        "Name": "email",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -57,7 +57,7 @@
         "IsRequired": false
       },
       {
-        "Name": "username",
+        "Name": "email",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -88,7 +88,7 @@
         "IsRequired": false
       },
       {
-        "Name": "username",
+        "Name": "email",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -101,25 +101,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TechHive.Presentation.Controllers.ProductsController",
-    "Method": "CreateProduct",
-    "RelativePath": "Products",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "TechHive.Application.Products.Command.CreateProducts.CreateProductCommand",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TechHive.Presentation.Controllers.ProductsController",
+    "ContainingType": "TechHive.Presentation.Controllers.ProductController",
     "Method": "UpdateProduct",
-    "RelativePath": "Products",
+    "RelativePath": "Product",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -133,9 +117,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TechHive.Presentation.Controllers.ProductsController",
+    "ContainingType": "TechHive.Presentation.Controllers.ProductController",
     "Method": "GetProduct",
-    "RelativePath": "Products/{productId}",
+    "RelativePath": "Product/{productId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -154,9 +138,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TechHive.Presentation.Controllers.ProductsController",
+    "ContainingType": "TechHive.Presentation.Controllers.ProductController",
     "Method": "DeleteProduct",
-    "RelativePath": "Products/{ProductId}",
+    "RelativePath": "Product/{ProductId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -169,6 +153,38 @@
       {
         "Name": "ProductId",
         "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TechHive.Presentation.Controllers.ProductController",
+    "Method": "CreateProduct",
+    "RelativePath": "Product/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TechHive.Presentation.Controllers.CreateProductRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TechHive.Presentation.Controllers.ProductController",
+    "Method": "Login",
+    "RelativePath": "Product/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "TechHive.Presentation.Controllers.LoginModel",
         "IsRequired": true
       }
     ],

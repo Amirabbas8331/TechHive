@@ -20,7 +20,7 @@ public static class UserEndpoints
             return Results.Ok(new
             {
                 accessToken = result.Token,
-                roles = result.Role,
+                role = result.role,
                 expiresIn = 3600,
 
             });

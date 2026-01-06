@@ -13,19 +13,33 @@ public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand,
     private readonly IUnitOfWork _unitOfWork;
     private readonly IIdGenerator<long> generator;
 
-    public CreateProductCommandHandler(IGenericRepository<Product> repository, IUnitOfWork unitOfWork,IIdGenerator<long> generator)
+    public CreateProductCommandHandler(IGenericRepository<Product> repository, IUnitOfWork unitOfWork, IIdGenerator<long> generator)
     {
         _repository = repository;
         _unitOfWork = unitOfWork;
         this.generator = generator;
     }
 
-   public async Task<Result<ProductId>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+    public async Task<Result<ProductId>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
     {
- 
-       var product= Product.Create(request.Name.ToString(), request.Code.ToString(), request?.Price?.Amount, request?.Price?.Currency.ToString(), request?.Description!,generator);
-        await _repository.AddAsync(product.Value);
+
+        var productResult = Product.Create(
+        name: request.Name.Value,
+        code: request.Code.Value,
+        price: request.Price?.Amount,
+        currencyCode: request.Price?.Currency.Code,
+        description: request.Description ?? string.Empty,
+        generator: generator
+    );
+
+        if (productResult.IsFailure)
+        {
+            return Result.Failure<ProductId>(productResult.Error);
+        }
+
+        var product = productResult.Value;
+        await _repository.AddAsync(product);
         await _unitOfWork.CommitChangesAsync();
-        return Result.Success(product.Value.Id);
+        return Result.Success(product.Id);
     }
 }

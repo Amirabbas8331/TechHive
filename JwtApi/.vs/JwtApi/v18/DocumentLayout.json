@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\msigaming\\source\\repos\\TechHive\\JwtApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AD6E1305-C789-4A42-922B-302693E609FE}|JwtApi\\JwtApi.csproj|c:\\users\\msigaming\\source\\repos\\techhive\\jwtapi\\jwtapi\\users\\userendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD6E1305-C789-4A42-922B-302693E609FE}|JwtApi\\JwtApi.csproj|solutionrelative:jwtapi\\users\\userendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AD6E1305-C789-4A42-922B-302693E609FE}|JwtApi\\JwtApi.csproj|c:\\users\\msigaming\\source\\repos\\techhive\\jwtapi\\jwtapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AD6E1305-C789-4A42-922B-302693E609FE}|JwtApi\\JwtApi.csproj|solutionrelative:jwtapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD6E1305-C789-4A42-922B-302693E609FE}|JwtApi\\JwtApi.csproj|c:\\users\\msigaming\\source\\repos\\techhive\\jwtapi\\jwtapi\\users\\userendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD6E1305-C789-4A42-922B-302693E609FE}|JwtApi\\JwtApi.csproj|solutionrelative:jwtapi\\users\\userendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,28 +46,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "UserEndpoints.cs",
               "DocumentMoniker": "C:\\Users\\msigaming\\source\\repos\\TechHive\\JwtApi\\JwtApi\\Users\\UserEndpoints.cs",
               "RelativeDocumentMoniker": "JwtApi\\Users\\UserEndpoints.cs",
               "ToolTip": "C:\\Users\\msigaming\\source\\repos\\TechHive\\JwtApi\\JwtApi\\Users\\UserEndpoints.cs",
               "RelativeToolTip": "JwtApi\\Users\\UserEndpoints.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBAAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBYAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-05T16:08:39.205Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\msigaming\\source\\repos\\TechHive\\JwtApi\\JwtApi\\Program.cs",
               "RelativeDocumentMoniker": "JwtApi\\Program.cs",
               "ToolTip": "C:\\Users\\msigaming\\source\\repos\\TechHive\\JwtApi\\JwtApi\\Program.cs",
               "RelativeToolTip": "JwtApi\\Program.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAACkAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACkAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T14:53:58.648Z"
+              "WhenOpened": "2026-01-05T14:53:58.648Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "TechHive.Presentation",
-    "version": "1.0"
+    "title": "My API",
+    "version": "v1"
   },
   "paths": {
     "/api/Files/upload": {
@@ -12,7 +12,7 @@
         ],
         "parameters": [
           {
-            "name": "username",
+            "name": "email",
             "in": "query",
             "schema": {
               "type": "string"
@@ -67,7 +67,7 @@
             }
           },
           {
-            "name": "username",
+            "name": "email",
             "in": "query",
             "schema": {
               "type": "string"
@@ -102,7 +102,7 @@
             }
           },
           {
-            "name": "username",
+            "name": "email",
             "in": "query",
             "schema": {
               "type": "string"
@@ -132,55 +132,26 @@
         }
       }
     },
-    "/Products": {
+    "/Product/Create": {
       "post": {
         "tags": [
-          "Products"
+          "Product"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateProductCommand"
+                "$ref": "#/components/schemas/CreateProductRequestDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateProductCommand"
+                "$ref": "#/components/schemas/CreateProductRequestDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateProductCommand"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Products"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateProductCommand"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateProductCommand"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateProductCommand"
+                "$ref": "#/components/schemas/CreateProductRequestDto"
               }
             }
           }
@@ -192,10 +163,10 @@
         }
       }
     },
-    "/Products/{ProductId}": {
+    "/Product/{ProductId}": {
       "delete": {
         "tags": [
-          "Products"
+          "Product"
         ],
         "parameters": [
           {
@@ -233,10 +204,10 @@
         }
       }
     },
-    "/Products/{productId}": {
+    "/Product/{productId}": {
       "get": {
         "tags": [
-          "Products"
+          "Product"
         ],
         "parameters": [
           {
@@ -274,6 +245,68 @@
         }
       }
     },
+    "/Product": {
+      "put": {
+        "tags": [
+          "Product"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProductCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProductCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProductCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Product/login": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/": {
       "get": {
         "tags": [
@@ -296,20 +329,29 @@
   },
   "components": {
     "schemas": {
-      "CreateProductCommand": {
+      "CreateProductRequestDto": {
         "type": "object",
         "properties": {
           "name": {
-            "$ref": "#/components/schemas/ProductName"
+            "type": "string",
+            "nullable": true
           },
           "code": {
-            "$ref": "#/components/schemas/ProductCode"
+            "type": "string",
+            "nullable": true
           },
-          "price": {
-            "$ref": "#/components/schemas/Money"
+          "priceAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "priceCurrency": {
+            "type": "string",
+            "nullable": true
           },
           "status": {
-            "$ref": "#/components/schemas/ProductStatus"
+            "type": "string",
+            "nullable": true
           },
           "description": {
             "type": "string",
@@ -337,6 +379,20 @@
             "readOnly": true
           },
           "symbol": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginModel": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
             "type": "string",
             "nullable": true
           }
@@ -387,8 +443,7 @@
         "properties": {
           "value": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -408,8 +463,7 @@
         "properties": {
           "value": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -460,6 +514,14 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\"",
+        "name": "Authorization",
+        "in": "header"
+      }
     }
   },
   "tags": [
@@ -467,7 +529,7 @@
       "name": "Files"
     },
     {
-      "name": "Products"
+      "name": "Product"
     },
     {
       "name": "TechHive.Presentation"

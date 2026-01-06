@@ -5,10 +5,10 @@ namespace TechHive.Application.Common;
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
 public class AuthorizeRolesAttribute : Attribute
 {
-    public string[] Roles { get; }
+    public string role { get; }
 
-    public AuthorizeRolesAttribute(params string[] roles)
+    public AuthorizeRolesAttribute(string role)
     {
-        Roles = roles;
+        this.role = role;
     }
 }

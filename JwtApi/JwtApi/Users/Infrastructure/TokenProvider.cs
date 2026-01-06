@@ -1,7 +1,7 @@
-﻿using System.Security.Claims;
-using System.Text;
-using Microsoft.IdentityModel.JsonWebTokens;
+﻿using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
+using System.Text;
 
 namespace JwtApi.Api.Users.Infrastructure;
 
@@ -20,7 +20,8 @@ public sealed class TokenProvider(IConfiguration configuration)
             [
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                new Claim("email_verified", user.EmailVerified.ToString())
+                new Claim("email_verified", user.EmailVerified.ToString()),
+                new Claim(ClaimTypes.Role, user.Role)
             ]),
             Expires = DateTime.UtcNow.AddMinutes(configuration.GetValue<int>("Jwt:ExpirationInMinutes")),
             SigningCredentials = credentials,

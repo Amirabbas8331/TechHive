@@ -74,7 +74,7 @@ public class SupabaseFileStorage : IFileStorage
         {
             Token = loginData.AccessToken,
             ExpiresAt = DateTime.UtcNow.AddSeconds(loginData.ExpiresIn - 10),
-            Role = loginData.Role
+            Role = loginData.role
         };
 
         string jsonToCache = JsonSerializer.Serialize(newCached);
@@ -151,11 +151,11 @@ public class SupabaseFileStorage : IFileStorage
         return url;
     }
 
-    private class LoginResponse
+    public class LoginResponse
     {
         public string AccessToken { get; set; } = default!;
         public int ExpiresIn { get; set; }
-        public string Role { get; set; } = default!;
+        public string role { get; set; } = default!;
     }
     private class CachedTokenData
     {

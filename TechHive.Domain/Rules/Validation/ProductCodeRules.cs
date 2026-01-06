@@ -19,11 +19,11 @@ public sealed class ProductCodeRules : IValueObjectRules<string>
     );
 
 
-   public static Result<string> Validate(string value)=>
-        ValidationChain
-            .For(value)
-            .Ensure(Guard.Against.NotEmpty,ProductErrors.Code.Empty)
-            .Ensure(c => Guard.Against.Length(c, CodeLength), ProductErrors.Code.Empty)
-            .Ensure(c => Guard.Against.Pattern(c, CodePattern), ProductErrors.Code.Empty);
-    
+    public static Result<string> Validate(string value) =>
+         ValidationChain
+             .For(value)
+             .Ensure(Guard.Against.NotEmpty, ProductErrors.Code.Empty)
+             .Ensure(c => Guard.Against.Length(c, CodeLength), ProductErrors.Code.TooLong(5))
+             .Ensure(c => Guard.Against.Pattern(c, CodePattern), ProductErrors.Code.InvalidFormat);
+
 }

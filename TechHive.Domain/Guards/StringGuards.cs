@@ -5,7 +5,7 @@ namespace TechHive.Domain.Guards;
 public static class StringGuards
 {
     public static bool NotEmpty(this IGuardClause guard, string? value) =>
-        string.IsNullOrEmpty(value);
+        !string.IsNullOrEmpty(value);
 
     public static bool Length(this IGuardClause guard, string? value, int length) =>
         value is not null && value.Length == length;

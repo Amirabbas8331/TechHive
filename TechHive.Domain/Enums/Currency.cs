@@ -15,8 +15,7 @@ public sealed class Currency : Enumeration<Currency>
         IEnumerable<(int Id, string Code, string Name, string Symbol)> items
     )
     {
-        foreach (var item in items)
-            Register(new Currency(item.Id, item.Code, item.Name, item.Symbol));
+
     }
 }
 
